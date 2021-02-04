@@ -3,7 +3,7 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           MovLix
         </a>
         <button
@@ -17,6 +17,13 @@ function NavBar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link pad-right" href="/purchased">
+              Rp.{localStorage.getItem('budget')}
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   )

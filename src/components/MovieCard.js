@@ -4,7 +4,11 @@ function MovieCard(props) {
   const image_api = 'https://image.tmdb.org/t/p/w300/'
   return (
     <div className="card mx-auto h-100" style={{ maxWidth: '22rem' }}>
-      <img src={image_api + props.movie.poster_path} className="card-img-top" alt="..." />
+      <img
+        src={image_api + props.movie.poster_path}
+        className="card-img-top"
+        alt={props.movie.title}
+      />
       <div className="card-body">
         <h5 className="card-title">{props.movie.title}</h5>
         <p className="card-text">Rp.{getPrice(props.movie.vote_average)}</p>
