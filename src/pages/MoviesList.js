@@ -6,10 +6,14 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 
 class MoviesList extends React.Component {
-  state = {
-    results: [],
-    movies: [],
-    page: this.props.match.params.page,
+  constructor(props) {
+    super(props)
+    this.state = {
+      results: [],
+      movies: [],
+      page: this.props.match.params.page,
+    }
+    this.checkPurchased = this.checkPurchased.bind(this)
   }
 
   componentDidMount() {
@@ -39,6 +43,16 @@ class MoviesList extends React.Component {
         this.setState({ movies })
       })
   }
+  checkPurchased(id) {
+    var arrayMoviePurchased = JSON.parse(localStorage.getItem('movie'))
+    var purchased = false
+    if (arrayMoviePurchased) {
+      arrayMoviePurchased.forEach((element) => {
+        if (element.id === id) purchased = true
+      })
+    }
+    return purchased
+  }
 
   render() {
     const cardStyle = {
@@ -56,7 +70,7 @@ class MoviesList extends React.Component {
                   style={cardStyle}
                   to={`/${movie.id}-${movie.original_title.replace(/\s/g, '-')}`}
                 >
-                  <MovieCard movie={movie} />
+                  <MovieCard movie={movie} purchased={this.checkPurchased(movie.id)} />
                 </Link>
               </div>
             ))}

@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import MovieCard from '../components/MovieCard'
-import { Link } from 'react-router'
+import '../App.css'
 
 class MoviesDetail extends React.Component {
   constructor(props) {
@@ -140,27 +140,36 @@ class MoviesDetail extends React.Component {
         <div className="container mt-5">
           <div className="row">
             <div className="col-3">
-              <img
-                src={image_api + this.state.movie.poster_path}
-                alt={this.state.movie.original_title}
-                className="card-img-top"
-              />
               {this.checkPurchased() ? (
-                <button
-                  type="button"
-                  className="btn btn-secondary btn-lg btn-block col-12"
-                  disabled
-                >
-                  Sudah
-                </button>
+                <div>
+                  <img
+                    src={image_api + this.state.movie.poster_path}
+                    alt={this.state.movie.original_title}
+                    className="card-img-top img-grey"
+                  />
+                  <button
+                    type="button"
+                    className="btn btn-secondary btn-lg btn-block col-12"
+                    disabled
+                  >
+                    Beli Film
+                  </button>
+                </div>
               ) : (
-                <button
-                  type="button"
-                  onClick={this.buyMovie}
-                  className="btn btn-primary btn-lg btn-block col-12"
-                >
-                  Beli Film
-                </button>
+                <div>
+                  <img
+                    src={image_api + this.state.movie.poster_path}
+                    alt={this.state.movie.original_title}
+                    className="card-img-top"
+                  />
+                  <button
+                    type="button"
+                    onClick={this.buyMovie}
+                    className="btn btn-primary btn-lg btn-block col-12"
+                  >
+                    Beli Film
+                  </button>
+                </div>
               )}
             </div>
             <div className="col-9">
