@@ -1,9 +1,9 @@
 import React from 'react'
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-3">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand roboto" href="/">
           MovLix
         </a>
         <button
@@ -17,10 +17,15 @@ function NavBar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <ul class="navbar-nav">
+        <ul className="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link pad-right" href="/purchased">
+            <a class="nav-link disabled roboto" href="/">
               Rp.{localStorage.getItem('budget')}
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link pad-right roboto" href="/purchased">
+              Lihat Pembelian
             </a>
           </li>
         </ul>

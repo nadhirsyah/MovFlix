@@ -23,8 +23,8 @@ function MovieCard(props) {
       )}
 
       <div className="card-body">
-        <h5 className="card-title">{props.movie.title}</h5>
-        <p className="card-text">Rp.{getPrice(props.movie.vote_average)}</p>
+        <h5 className="card-title roboto blue">{props.movie.title}</h5>
+        <p className="card-text roboto">Rp.{getPrice(props.movie.vote_average)}</p>
       </div>
     </div>
   )

@@ -136,7 +136,7 @@ class MoviesDetail extends React.Component {
   render() {
     const image_api = 'https://image.tmdb.org/t/p/w300/'
     return (
-      <div>
+      <div data-test="movies-detail">
         <div className="container mt-5">
           <div className="row">
             <div className="col-3">
@@ -149,7 +149,7 @@ class MoviesDetail extends React.Component {
                   />
                   <button
                     type="button"
-                    className="btn btn-secondary btn-lg btn-block col-12"
+                    className="btn btn-secondary btn-lg btn-block col-12 roboto"
                     disabled
                   >
                     Beli Film
@@ -165,7 +165,7 @@ class MoviesDetail extends React.Component {
                   <button
                     type="button"
                     onClick={this.buyMovie}
-                    className="btn btn-primary btn-lg btn-block col-12"
+                    className="btn btn-primary btn-lg btn-block col-12 roboto"
                   >
                     Beli Film
                   </button>
@@ -173,24 +173,30 @@ class MoviesDetail extends React.Component {
               )}
             </div>
             <div className="col-9">
-              <h2>{this.state.movie.original_title}</h2>
+              <h2 className="roboto blue">{this.state.movie.original_title}</h2>
               {this.state.movie.genres === undefined ? null : (
-                <p>Genre Film: {this.convertArrayToString(this.state.movie.genres)}</p>
+                <p className="roboto">
+                  Genre Film: {this.convertArrayToString(this.state.movie.genres)}
+                </p>
               )}
               {this.state.casts === undefined ? null : (
-                <p>Casts : {this.convertArrayToString(this.state.casts)}</p>
+                <p className="roboto">
+                  Casts : {this.convertArrayToString(this.state.casts)}
+                </p>
               )}
-              <p>Rating : {this.state.movie.vote_average}</p>
+              <p className="roboto">Rating : {this.state.movie.vote_average}</p>
               {this.state.movie.vote_average === undefined ? null : (
-                <p>Harga : Rp.{this.getPrice(this.state.movie.vote_average)}</p>
+                <p className="roboto">
+                  Harga : Rp.{this.getPrice(this.state.movie.vote_average)}
+                </p>
               )}
-              <h4>Sinopsis</h4>
-              <p>{this.state.movie.overview}</p>
+              <h4 className="roboto">Sinopsis</h4>
+              <p className="roboto">{this.state.movie.overview}</p>
             </div>
           </div>
         </div>
         <div className="container mt-4">
-          <h2>Film Serupa</h2>
+          <h2 className="roboto">Film Serupa</h2>
           <div className="row row-cols-1 row-cols-md-6 g-4 pt-3">
             {this.state.similar.map((movie) => (
               <div className="col" key={movie.id}>
@@ -200,7 +206,7 @@ class MoviesDetail extends React.Component {
           </div>
         </div>
         <div className="container mt-4">
-          <h2>Rekomendasi Film</h2>
+          <h2 className="roboto">Rekomendasi Film</h2>
           <div className="row row-cols-1 row-cols-md-6 g-4 pt-3">
             {this.state.recommendations.map((movie) => (
               <div className="col" key={movie.id}>

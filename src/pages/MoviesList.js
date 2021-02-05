@@ -11,7 +11,6 @@ class MoviesList extends React.Component {
     this.state = {
       results: [],
       movies: [],
-      page: this.props.match.params.page,
     }
     this.checkPurchased = this.checkPurchased.bind(this)
   }
@@ -33,7 +32,7 @@ class MoviesList extends React.Component {
         params: {
           api_key: '9610ac956926261edceb5904e2ec6d17',
           region: 'ID',
-          page: this.state.page,
+          page: this.props.match.params.page,
         },
       })
       .then((res) => {
@@ -62,7 +61,7 @@ class MoviesList extends React.Component {
 
     return (
       <div>
-        <div className="container">
+        <div data-test="movies-list" className="container">
           <div className="row row-cols-1 row-cols-md-3 g-4 pt-3">
             {this.state.movies.map((movie) => (
               <div className="col" key={movie.id}>
@@ -75,8 +74,11 @@ class MoviesList extends React.Component {
               </div>
             ))}
           </div>
-          <div>
-            <Paginate active={this.state.page} page={this.state.results.page} />
+          <div className="mt-3">
+            <Paginate
+              active={this.props.match.params.page}
+              page={this.state.results.page}
+            />
           </div>
         </div>
       </div>

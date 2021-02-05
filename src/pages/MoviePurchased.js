@@ -9,19 +9,23 @@ class MoviePurchased extends React.Component {
   }
   render() {
     return (
-      <div className="container">
+      <div data-test="movie-purchased" className="container">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Nama Film</th>
-              <th scope="col">Harga</th>
+              <th className="roboto" scope="col">
+                Nama Film
+              </th>
+              <th className="roboto" scope="col">
+                Harga
+              </th>
             </tr>
           </thead>
           <tbody>
             {this.state.purchased.map((movie) => (
               <tr>
-                <td>{movie.name}</td>
-                <td>{movie.price}</td>
+                <td className="roboto">{movie.name}</td>
+                <td className="roboto">{movie.price}</td>
               </tr>
             ))}
           </tbody>
