@@ -32,13 +32,6 @@
       "plugin:prettier/recommended"
     ]
   },
-  "prettier": {
-    "printWidth": 90,
-    "bracketSpacing": true,
-    "trailingComma": "es5",
-    "semi": false,
-    "singleQuote": true
-  },
   "browserslist": {
     "production": [
       ">0.2%",
